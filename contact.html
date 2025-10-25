@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gradient Wave Neumorphism Contact Form</title>
+<style>
+  /* Gradient Wave Background */
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #7f00ff, #6c5a6e, #ff69b4);
+    overflow: hidden;
+  }
+
+  svg.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    opacity: 0.3;
+  }
+
+  /* Contact Card */
+  .contact-card {
+    position: relative;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 8px 8px 16px #1a1a1a80, -8px -8px 16px #ffffff10;
+    border: 1px solid rgba(255,255,255,0.1);
+    width: 350px;
+    text-align: center;
+  }
+
+  .contact-card h2 {
+    color: #fff;
+    text-shadow: 0 0 10px #c084fc;
+    margin-bottom: 25px;
+  }
+
+  /* Form Elements */
+  .contact-card input,
+  .contact-card textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    background: rgba(114, 102, 102, 0);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .contact-card input::placeholder,
+  .contact-card textarea::placeholder {
+    color: #ccc;
+  }
+
+  .contact-card input:focus,
+  .contact-card textarea:focus {
+    border-color: #c084fc;
+    box-shadow: 0 0 10px #c084fc;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* Submit Button */
+  .contact-card button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    background: linear-gradient(90deg, #7f00ff, #ff69b4, #4b0082);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px #c084fc;
+    transition: transform 0.1s;
+  }
+
+  .contact-card button:hover {
+    transform: scale(1.05);
+  }
+
+  /* Success Message */
+  .success-msg {
+    color: #00ff99;
+    margin-top: 15px;
+    font-weight: bold;
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Gradient Wave -->
+<svg class="wave" viewBox="0 0 1440 320">
+  <path fill="#ffffff" fill-opacity="0.2" d="M0,64L48,80C96,96,192,128,288,122.7C384,117,480,75,576,85.3C672,96,768,160,864,181.3C960,203,1056,181,1152,176C1248,171,1344,181,1392,186.7L1440,192L1440,320L0,320Z"></path>
+</svg>
+
+<div class="contact-card">
+  <h2>Contact Us</h2>
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+    <p class="success-msg" id="successMsg" style="display:none;">Message sent successfully ✅</p>
+  </form>
+</div>
+
+<script>
+  // Simple form submission
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('successMsg').style.display = 'block';
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
